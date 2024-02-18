@@ -11,24 +11,46 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
+<script>
+  function highlightCurrentPageLink() {
+      // Get the current page's filename (e.g., "index.html")
+      var currentPage = location.pathname.split("/").slice(-1)[0];
+
+      // Remove the file extension (e.g., ".html")
+      currentPage = currentPage.replace(".html", "");
+
+      // Find the corresponding link and add a class to highlight it
+      var link = document.getElementById(currentPage + "-link");
+      if (link) {
+          link.classList.add("current");
+      }
+  }
+
+  // Call the function when the page loads
+  window.onload = highlightCurrentPageLink;
+</script>
+
 </head>
 <header class="parallax">
-  <div class="container">
-    <div id="branding">
-      <a href="index.html" class="button">
-        <img src="images/logo.png" style="width:30%;">
-      </a>
-    </div>
-    <nav>
-      <ul>
-        <li><a href="index.html">Home</a></li>
-        <li class="current"><a href="teams.html">About Us</a></li>
-        <li><a href="services.html">Services</a></li>
-        <li><a href="signup.html">Sign up CRM</a></li>
-        <li><button style="background-color: #CDAD7D;font-weight:bold;"><a href="index.html#buttonto">Get In Touch</a></button></li>
-      </ul>
-    </nav>
-  </div>
+  <!-- include header -->
+  <div id="headerContainer"></div>
+  <script>
+    // Function to fetch and insert the header content
+    function includeHeader() {
+        fetch('header.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('headerContainer').innerHTML = data;
+            })
+            .catch(error => {
+                console.error('Error fetching header content:', error);
+            });
+    }
+
+    // Call the function to include the header
+    includeHeader();
+  </script>
+  <!-- End of Header -->
  
 <body style="background-color:#000000;" >
   <div class="container my-5" id="divWeiJer" style="display: block;">
@@ -96,6 +118,22 @@
       </div>
     </div>
   </div>
+  <div class="container my-5" id="divJiaQian" style="display: none;">
+    <div class="row">
+      <div class="col-lg-6">
+        <img class="w-100 shadow" src="images/jiaqianphoto.jpg"  style="padding-top: 40px;"/>
+      </div>
+      <div class="col-lg-6">
+        <div class="p-5 mt-4" style="color:white;">
+            <h1 class="display-4" style="font-size: 5.8rem; margin-top: -4%;">Lee Jia Qian</h1>
+            <p class="lead" style="font-size: 1.6rem;">The Dusky's development team consists of various professionals with different skills and expertise, working together to build and maintain websites and web applicationsz. They are responsible for developing creative, ineractive user interface of the website or application.</p>
+          </div>
+      </div>
+    </div>
+  </div>
+  
+  
+  
   
   </header>
 
@@ -145,6 +183,14 @@
                 <div class="at-user__title" style="font-size: 1.5rem;">Software Developer</div>
             </div>
           </div>
+
+          <div class="at-column">
+            <div class="at-user" onclick="toggleUserDetails('JiaQian')">
+              <div class="at-user__avatar"><img src="images/jiaqianphoto.jpg"/></div>
+              <div class="at-user__name" style="font-size: 1.5rem;">Lee Jia Qian</div>
+              <div class="at-user__title" style="font-size: 1.5rem;">Software Developer</div>
+           </div>
+         </div>
          
 
           <!-- <div class="at-column">
@@ -161,31 +207,6 @@
     
     
       </div>
-
-      <section class="trial-block shadow3" id="ContactUs">
-        <div class="height450">
-           <div class="section-title text-center">
-              <h2>Connect With Us</h2>
-              <span class="section-title-line section-title-line"></span>
-           </div>
-            <div class="social-overlap process-scetion mt100">
-             <div class="container">
-                 <div class="row justify-content-center">
-                     <div class="col-md-10">
-                         <div class="social-bar">
-                             <div class="social-icons mb-3 iconpad text-center">
-                              <a href="mailto: duskytechco@gmail.com?subject=Sales Enquiry" target="_blank" class="slider-nav-item"><i class="fa fa-envelope" style="font-size: 100px;"></i></a>
-                              <a href="https://www.linkedin.com/in/dusky-co-5089b125a/" target="_blank" class="slider-nav-item"><i class="fa fa-linkedin-square"  style="font-size: 100px;"></i></a>
-                              <a href="https://wa.me/6596534976?text=Hello! I'm enquirying about your Sales" target="_blank" class="slider-nav-item"><i class="fa fa-whatsapp"  style="font-size: 100px;"></i></a>                                
-                              <a href="https://www.instagram.com/dusky_co/" target="_blank" class="slider-nav-item"><i class="fa fa-instagram"  style="font-size: 100px;"></i></a>
-                             </div>
-                         </div>
-                     </div>
-                 </div>
-             </div>
-         </div>
-        </div> 
-</section>
 <style>
   section {
     padding: 50px 0;
@@ -1114,9 +1135,15 @@ header nav {
 }
 
 header .highlight,
-header .current a {
+/* header .current a {
     color: #e8491d;
     font-weight:bold;
+} */
+
+/* Style for the current link */
+.current {
+    color: #e8491d;
+    font-weight: bold;
 }
 
 header a:hover {
@@ -1360,51 +1387,25 @@ header a:hover {
 
 
 </style>
-<div class="row222">
+  <!-- include Footer -->
+  <div id="footerContainer"></div>
+  <script>
+    // Function to fetch and insert the header content
+    function includeHeader() {
+        fetch('footer.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('footerContainer').innerHTML = data;
+            })
+            .catch(error => {
+                console.error('Error fetching footer content:', error);
+            });
+    }
 
-  <div class="column" style="margin-left: 3%;">
-
-    <h4>About Us</h4>
-
-    <p style="font-size: 1.7rem">Dusky is a startup software company that is dedicated to providing innovative solutions to other enterprises.</p>
-
-  </div>
-
-  <div class="column" style="margin-left: 7%;">
-
-    <h4>Quick Links</h4>
-
-    <ul>
-
-      <li><a href="services1.html" style="font-size: 1.7rem;"><i class="fa fa-angle-right"></i> Web Development</a></li>
-    </ul>
-
-  </div>
-
-  <div class="column">
-
-    <h4>Connect with Us</h4>
-
-    <ul class="social-icons">
-
-      <li><a href="mailto: duskytechco@gmail.com" target="_blank">
-        <i class="fa fa-envelope" style="font-size: 2rem"></i></a></li>
-      
-      <li><a href="https://www.linkedin.com/company/dusky-co/" target="_blank">
-        <i class="fa fa-linkedin-square" style="font-size: 2rem"></i></a></li>
-      <li><a href="https://wa.me/6596534976?text=Hi, I would like to enquire more about Dusky's services" target="_blank">
-        <i class="fa fa-whatsapp" target="_blank" style="font-size: 2rem"></i></a></li>
-      <li><a href="https://www.instagram.com/p/CqkIzKyslqY/" target="_blank">
-        <i class="fa fa-instagram" aria-hidden="true" style="font-size: 2rem"></i></a></li>
-
-
-    </ul>
-
-  </div>
-
-</div>
-  
-  <p class="copyright">© 2023 All Rights Reserved</p>
+    // Call the function to include the header
+    includeHeader();
+  </script>
+<!-- End of Footer -->
   <style>
     .row222 {
     display: flex;
@@ -1526,6 +1527,8 @@ header a:hover {
       var kahheeDiv = document.getElementById('divKahhee');
       var benDiv = document.getElementById('divBen');
       var abuDiv = document.getElementById('divAbu');
+      var jiaQianDiv = document.getElementById('divJiaQian');
+
       
       if (userId === 'weijer') {
         weiJerDiv.style.display = 'block';
@@ -1533,26 +1536,38 @@ header a:hover {
         kahheeDiv.style.display = 'none';
         abuDiv.style.display = 'none';
         benDiv.style.display = 'none';
+        jiaQianDiv.style.display = 'none';
       } else if (userId === 'junde') {
         junDeDiv.style.display = 'block';
         weiJerDiv.style.display = 'none';
         kahheeDiv.style.display = 'none';
         abuDiv.style.display = 'none';
         benDiv.style.display = 'none';
+        jiaQianDiv.style.display = 'none';
       } else if (userId === 'kahhee') {
         kahheeDiv.style.display = 'block';
         junDeDiv.style.display = 'none';
         weiJerDiv.style.display = 'none';
         abuDiv.style.display = 'none';
         benDiv.style.display = 'none';
+        jiaQianDiv.style.display = 'none';
       } else if (userId === 'abu') {
         abuDiv.style.display = 'block';
         junDeDiv.style.display = 'none';
         weiJerDiv.style.display = 'none';
         kahheeDiv.style.display = 'none';
         benDiv.style.display = 'none';
+        jiaQianDiv.style.display = 'none';
       } else if (userId === 'ben') {
         benDiv.style.display = 'block';
+        junDeDiv.style.display = 'none';
+        weiJerDiv.style.display = 'none';
+        kahheeDiv.style.display = 'none';
+        abuDiv.style.display = 'none';
+        jiaQianDiv.style.display = 'none';
+      }else if (userId === 'JiaQian') {
+        jiaQianDiv.style.display = 'block';
+        benDiv.style.display = 'none';
         junDeDiv.style.display = 'none';
         weiJerDiv.style.display = 'none';
         kahheeDiv.style.display = 'none';

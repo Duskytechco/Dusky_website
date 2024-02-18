@@ -70,28 +70,47 @@ catch(Exception $e){
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
     />
+
+    <script>
+      function highlightCurrentPageLink() {
+          // Get the current page's filename (e.g., "index.html")
+          var currentPage = location.pathname.split("/").slice(-1)[0];
+
+          // Remove the file extension (e.g., ".html")
+          currentPage = currentPage.replace(".php", "");
+
+          // Find the corresponding link and add a class to highlight it
+          var link = document.getElementById(currentPage + "-link");
+          if (link) {
+              link.classList.add("current");
+          }
+      }
+
+      // Call the function when the page loads
+      window.onload = highlightCurrentPageLink;
+    </script>  
+
   </head>
   <header class="parallax">
-    <div class="container">
-      <div id="branding">
-        <a href="index.html" class="button">
-          <img src="images/logo.png" style="width: 30%" />
-        </a>
-      </div>
-      <nav>
-        <ul>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="teams.html">About Us</a></li>
-          <li><a href="services.html">Services</a></li>
-          <li class="current"><a href="#">Sign Up CRM</a></li>
-          <li>
-            <button style="background-color: #cdad7d; font-weight: bold">
-              <a href="index.html#buttonto">Get In Touch</a>
-            </button>
-          </li>
-        </ul>
-      </nav>
-    </div>
+    <!-- include header -->
+    <div id="headerContainer"></div>
+    <script>
+      // Function to fetch and insert the header content
+      function includeHeader() {
+          fetch('header.html')
+              .then(response => response.text())
+              .then(data => {
+                  document.getElementById('headerContainer').innerHTML = data;
+              })
+              .catch(error => {
+                  console.error('Error fetching header content:', error);
+              });
+      }
+
+      // Call the function to include the header
+      includeHeader();
+    </script>
+    <!-- End of Header -->
   </header>
   <body>
     <div class="form-container">
@@ -133,75 +152,27 @@ catch(Exception $e){
 
         <button type="submit">Sign Up</button>
       </form>
-      <?php echo $Message; ?>
     </div>
 
-    <div class="row222">
-      <div class="column" style="margin-left: 3%">
-        <h4>About Us</h4>
+    <!-- include Footer -->
+    <div id="footerContainer"></div>
+      <script>
+        // Function to fetch and insert the header content
+        function includeHeader() {
+            fetch('footer.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('footerContainer').innerHTML = data;
+                })
+                .catch(error => {
+                    console.error('Error fetching footer content:', error);
+                });
+        }
 
-        <p style="font-size: 1.7rem">
-          Dusky is a startup software company that is dedicated to providing
-          innovative solutions to other enterprises.
-        </p>
-      </div>
-
-      <div class="column" style="margin-left: 7%">
-        <h4>Quick Links</h4>
-
-        <ul>
-          <li>
-            <a href="services1.html" style="font-size: 1.7rem"
-              ><i class="fa fa-angle-right"></i> Web Development</a
-            >
-          </li>
-        </ul>
-      </div>
-
-      <div class="column">
-        <h4>Connect with Us</h4>
-
-        <ul class="social-icons">
-          <li>
-            <a href="mailto: duskytechco@gmail.com" target="_blank">
-              <i class="fa fa-envelope" style="font-size: 2rem"></i
-            ></a>
-          </li>
-
-          <li>
-            <a
-              href="https://www.linkedin.com/company/dusky-co/"
-              target="_blank"
-            >
-              <i class="fa fa-linkedin-square" style="font-size: 2rem"></i
-            ></a>
-          </li>
-          <li>
-            <a
-              href="https://wa.me/6596534976?text=Hi, I would like to enquire more about Dusky's services"
-              target="_blank"
-            >
-              <i
-                class="fa fa-whatsapp"
-                target="_blank"
-                style="font-size: 2rem"
-              ></i
-            ></a>
-          </li>
-          <li>
-            <a href="https://www.instagram.com/p/CqkIzKyslqY/" target="_blank">
-              <i
-                class="fa fa-instagram"
-                aria-hidden="true"
-                style="font-size: 2rem"
-              ></i
-            ></a>
-          </li>
-        </ul>
-      </div>
-    </div>
-
-    <p class="copyright">© 2023 All Rights Reserved</p>
+        // Call the function to include the header
+        includeHeader();
+      </script>
+    <!-- End of Footer -->
 
     <style>
      /* Style the form container */
@@ -323,9 +294,15 @@ catch(Exception $e){
       }
 
       header .highlight,
-      header .current a {
+      /* header .current a {
         color: #e8491d;
         font-weight: bold;
+      } */
+
+      /* Style for the current link */
+      .current {
+          color: #e8491d;
+          font-weight: bold;
       }
 
       header a:hover {

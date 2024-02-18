@@ -10,34 +10,56 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/css/bootstrap.css">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
 
+<script>
+  function highlightCurrentPageLink() {
+      // Get the current page's filename (e.g., "index.html")
+      var currentPage = location.pathname.split("/").slice(-1)[0];
+
+      // Remove the file extension (e.g., ".html")
+      currentPage = currentPage.replace(".html", "");
+
+      // Find the corresponding link and add a class to highlight it
+      var link = document.getElementById(currentPage + "-link");
+      if (link) {
+          link.classList.add("current");
+      }
+  }
+
+  // Call the function when the page loads
+  window.onload = highlightCurrentPageLink;
+</script>
+
 </head>
 <header class="parallax">
-  <div class="container">
-    <div id="branding">
-      <a href="index.html" class="button">
-        <img src="images/logo.png" style="width:30%;">
-      </a>
+  <!-- include header -->
+  <div id="headerContainer"></div>
+  <script>
+    // Function to fetch and insert the header content
+    function includeHeader() {
+        fetch('header.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('headerContainer').innerHTML = data;
+            })
+            .catch(error => {
+                console.error('Error fetching header content:', error);
+            });
+    }
+
+    // Call the function to include the header
+    includeHeader();
+  </script>
+  <!-- End of Header -->
+
+  <section id="showcase">
+    <div class="container">
+      <h1 style="font-size: 5.8rem;">Who Are We?</h1>
+        <p style="font-size: 2.5rem;">Dusky is a startup software company that is dedicated to providing innovative solutions to other enterprises.
+          We focus on setting up simple ecosystems that help our clients streamline their operations, increase efficiency, and maximize productivity. 
+          Our team of experts specializes in creating custom HR apps, CRMs, data analysis software, and chatbots that are tailored to meet the unique needs of each client.</p>
     </div>
-    <nav>
-      <ul>
-        <li class="current"><a href="index.html">Home</a></li>
-        <li><a href="teams.html">About Us</a></li>
-        <li><a href="services.html">Services</a></li>
-        <li><a href="signup.php">Sign up CRM</a></li>
-        <li><button style="background-color: #CDAD7D;font-weight:bold;"><a href="#ContactUs">Get In Touch</a></button></li>
-      </ul>
-    </nav>
-  </div>
-<section id="showcase">
-  <div class="container">
-    <h1 style="font-size: 5.8rem;">Who Are We?</h1>
-      <p style="font-size: 2.5rem;">Dusky is a startup software company that is dedicated to providing innovative solutions to other enterprises.
-         We focus on setting up simple ecosystems that help our clients streamline their operations, increase efficiency, and maximize productivity. 
-         Our team of experts specializes in creating custom HR apps, CRMs, data analysis software, and chatbots that are tailored to meet the unique needs of each client.</p>
-  </div>
-  <button type="submit" class="button_submit" style="border-radius: 5px;"><a href="#ContactUs" style="text-decoration: none; align-items: center; color: rgb(0, 0, 0);">Learn More</a></button>
-</section>
-2
+    <button type="submit" class="button_submit" style="border-radius: 5px;"><a href="#ContactUs" style="text-decoration: none; align-items: center; color: rgb(0, 0, 0);">Learn More</a></button>
+  </section>
 </header>
 <body style="background-color:#000000;">
 <div class="pricing-box-container" style="margin-top: 7%;">
@@ -1322,7 +1344,13 @@ header nav {
 }
 
 header .highlight,
-header .current a {
+/* header .current a {
+    color: #e8491d;
+    font-weight: bold;
+} */
+
+/* Style for the current link */
+.current {
     color: #e8491d;
     font-weight: bold;
 }
@@ -1480,47 +1508,25 @@ footer {
     }
 }
 </style>
-<div class="row222">
+<!-- include Footer -->
+<div id="footerContainer"></div>
+  <script>
+    // Function to fetch and insert the header content
+    function includeHeader() {
+        fetch('footer.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('footerContainer').innerHTML = data;
+            })
+            .catch(error => {
+                console.error('Error fetching footer content:', error);
+            });
+    }
 
-  <div class="column" style="margin-left: 3%;">
-
-    <h1>About Us</h1>
-
-    <p style="font-size: 1.7rem">Dusky is a startup software company that is dedicated to providing innovative solutions to other enterprises.</p>
-
-  </div>
-
-  <div class="column" style="margin-left: 7%;">
-    <h1>Quick Links</h1>
-    <ul>
-      <li ><a href="services1.html" style="font-size: 1.7rem;"><i class="fa fa-angle-right" style="font-size: 1.7rem"></i> Web Development</a></li>
-    </ul>
-  </div>
-
-  <div class="column">
-
-    <h1>Connect with Us</h1>
-    
-
-    <ul class="social-icons">
-
-      <li><a href="mailto: duskytechco@gmail.com" target="_blank">
-        <i class="fa fa-envelope" style="font-size: 2rem"></i></a></li>
-      <li><a href="https://www.linkedin.com/company/dusky-co/" target="_blank">
-        <i class="fa fa-linkedin-square" style="font-size: 2rem"></i></a></li>
-      <li><a href="https://wa.me/6596534976?text=Hi, I would like to enquire more about Dusky's services" target="_blank">
-        <i class="fa fa-whatsapp" style="font-size: 2rem" target="_blank"></i></a></li>
-      <li><a href="https://www.instagram.com/p/CqkIzKyslqY/" target="_blank">
-        <i class="fa fa-instagram" style="font-size: 2rem" aria-hidden="true"></i></a></li>
-
-
-    </ul>
-
-  </div>
-
-</div>
-
-<p class="copyright">© 2023 All Rights Reserved</p>
+    // Call the function to include the header
+    includeHeader();
+  </script>
+  <!-- End of Footer -->
 <style>
   .row222 {
   display: flex;
