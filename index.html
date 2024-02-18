@@ -31,72 +31,72 @@
   </script>
 
 </head>
+<header class="parallax">
+  <!-- include header -->
+  <div id="headerContainer"></div>
+  <script>
+    // Function to fetch and insert the header content
+    function includeHeader() {
+      fetch('header.html')
+        .then(response => response.text())
+        .then(data => {
+          document.getElementById('headerContainer').innerHTML = data;
+        })
+        .catch(error => {
+          console.error('Error fetching header content:', error);
+        });
+    }
+
+    // Call the function to include the header
+    includeHeader();
+  </script>
+  <!-- End of Header -->
+
+  <section id="showcase">
+    <div class="container">
+      <h1 style="font-size: 5.8rem;">Who Are We?</h1>
+      <p style="font-size: 2.5rem;">
+        Dusky isn't just a custom software development company, it's a hub for collaborative
+        innovation. While we handle complex software projects for diverse clients, our story extends beyond individual
+        efforts.<span id="dots">..</span>
+        <span id="read-more" style="display: none;">
+          </br>
+          For instance, we proudly serve as the outsourced tech team for Rethinkpack, a company revolutionizing the
+          packaging industry with sustainable solutions. Our partnership goes beyond code; we're invested in their
+          mission of a greener future.
+          </br>
+          Moreover, we actively seek external expertise. MyLearnZone, a leader in AI automation, provides us with
+          cutting-edge AI solutions to enhance our offerings. This collaboration ensures our clients benefit from the
+          latest advancements.
+          </br>
+          Beyond projects, we actively participate in the ASIA AI association. Contributing to events, planning, and
+          information sharing allows me to stay ahead of the curve and connect with like-minded professionals. This
+          fosters a collaborative environment where everyone benefits.
+        </span>
+        <button onclick="readMore()" id="read-more-btn">Read more</button>
+      </p>
+      <script>
+        function readMore() {
+          var dots = document.getElementById("dots");
+          var moreText = document.getElementById("read-more");
+          var btnText = document.getElementById("read-more-btn");
+
+          if (moreText.style.display === "none") {
+            moreText.style.display = "inline";
+            btnText.innerHTML = "Read less";
+            dots.style.display = "none";
+          } else {
+            moreText.style.display = "none";
+            btnText.innerHTML = "Read more";
+            dots.style.display = "inline";
+          }
+        }
+      </script>
+    </div>
+  </section>
+</header>
 
 <body style="background-color:#000000;">
-  <header class="parallax">
-    <!-- include header -->
-    <div id="headerContainer"></div>
-    <script>
-      // Function to fetch and insert the header content
-      function includeHeader() {
-        fetch('header.html')
-          .then(response => response.text())
-          .then(data => {
-            document.getElementById('headerContainer').innerHTML = data;
-          })
-          .catch(error => {
-            console.error('Error fetching header content:', error);
-          });
-      }
-  
-      // Call the function to include the header
-      includeHeader();
-    </script>
-    <!-- End of Header -->
-  
-    <section id="showcase">
-      <div class="container">
-        <h1 style="font-size: 5.8rem;">Who Are We?</h1>
-        <p style="font-size: 2.5rem;">
-          Dusky isn't just a custom software development company, it's a hub for collaborative
-          innovation. While we handle complex software projects for diverse clients, our story extends beyond individual
-          efforts.<span id="dots">..</span>
-          <span id="read-more" style="display: none;">
-            </br>
-            For instance, we proudly serve as the outsourced tech team for Rethinkpack, a company revolutionizing the
-            packaging industry with sustainable solutions. Our partnership goes beyond code; we're invested in their
-            mission of a greener future.
-            </br>
-            Moreover, we actively seek external expertise. MyLearnZone, a leader in AI automation, provides us with
-            cutting-edge AI solutions to enhance our offerings. This collaboration ensures our clients benefit from the
-            latest advancements.
-            </br>
-            Beyond projects, we actively participate in the ASIA AI association. Contributing to events, planning, and
-            information sharing allows me to stay ahead of the curve and connect with like-minded professionals. This
-            fosters a collaborative environment where everyone benefits.
-          </span>
-          <button onclick="readMore()" id="read-more-btn">Read more</button>
-        </p>
-        <script>
-          function readMore() {
-            var dots = document.getElementById("dots");
-            var moreText = document.getElementById("read-more");
-            var btnText = document.getElementById("read-more-btn");
-  
-            if (moreText.style.display === "none") {
-              moreText.style.display = "inline";
-              btnText.innerHTML = "Read less";
-              dots.style.display = "none";
-            } else {
-              moreText.style.display = "none";
-              btnText.innerHTML = "Read more";
-              dots.style.display = "inline";
-            }
-          }
-        </script>
-      </div>
-    </section>
-  </header>
   <div class="pricing-box-container" style="margin-top: 7%;">
     <div class="pricing-box pricing-box-bg-image text-center" style="margin-bottom: 90px;">
       <h2 style="font-weight: bold;">IT solutions</h2>
@@ -158,8 +158,6 @@
 
 
   <style>
-
-
     #read-more-btn {
       background-color: #CDAD7D;
       font-size: 1.5rem;
