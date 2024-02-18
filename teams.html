@@ -126,6 +126,67 @@
       </div>
     </div>
   </div>
+  <div class="container my-5" id="divLeeChenShiang" style="display: none;">
+    <div class="row">
+      <div class="col-lg-6">
+        <img class="w-100 shadow" src="images/LeeChenShiang.jpg"  style="padding-top: 40px;"/>
+      </div>
+      <div class="col-lg-6">
+        <div class="p-5 mt-4" style="color:white;">
+            <h1 class="display-4" style="font-size: 5.8rem; margin-top: -4%;">Lee Jia Qian</h1>
+          </div>
+      </div>
+    </div>
+  </div>
+  <div class="container my-5" id="divFaisal" style="display: none;">
+    <div class="row">
+      <div class="col-lg-6">
+        <img class="w-100 shadow" src="images/Faisal.jpg"  style="padding-top: 40px;"/>
+      </div>
+      <div class="col-lg-6">
+        <div class="p-5 mt-4" style="color:white;">
+            <h1 class="display-4" style="font-size: 5.8rem; margin-top: -4%;">Lee Jia Qian</h1>
+          </div>
+      </div>
+    </div>
+  </div>
+  <div class="container my-5" id="divJiahHao" style="display: none;">
+    <div class="row">
+      <div class="col-lg-6">
+        <img class="w-100 shadow" src="images/JiahHao.jpg"  style="padding-top: 40px;"/>
+      </div>
+      <div class="col-lg-6">
+        <div class="p-5 mt-4" style="color:white;">
+            <h1 class="display-4" style="font-size: 5.8rem; margin-top: -4%;">Lee Jia Qian</h1>
+          </div>
+      </div>
+    </div>
+  </div>
+  <div class="container my-5" id="divKiaYi" style="display: none;">
+    <div class="row">
+      <div class="col-lg-6">
+        <img class="w-100 shadow" src="images/KiaYi.jpg"  style="padding-top: 40px;"/>
+      </div>
+      <div class="col-lg-6">
+        <div class="p-5 mt-4" style="color:white;">
+            <h1 class="display-4" style="font-size: 5.8rem; margin-top: -4%;">Lee Jia Qian</h1>
+          </div>
+      </div>
+    </div>
+  </div>
+  <div class="container my-5" id="divShowherda" style="display: none;">
+    <div class="row">
+      <div class="col-lg-6">
+        <img class="w-100 shadow" src="images/Showherda.jpg"  style="padding-top: 40px;"/>
+      </div>
+      <div class="col-lg-6">
+        <div class="p-5 mt-4" style="color:white;">
+            <h1 class="display-4" style="font-size: 5.8rem; margin-top: -4%;">Lee Jia Qian</h1>
+          </div>
+      </div>
+    </div>
+  </div>
+
   
   
   
@@ -184,8 +245,48 @@
               <div class="at-user__avatar"><img src="images/jiaqianphoto.jpg"/></div>
               <div class="at-user__name" style="font-size: 1.5rem;">Lee Jia Qian</div>
               <div class="at-user__title" style="font-size: 1.5rem;">Backend Developer</div>
-           </div>
-         </div>
+            </div>
+          </div>
+
+          <div class="at-column">
+            <div class="at-user" onclick="toggleUserDetails('LeeChenShiang')">
+              <div class="at-user__avatar"><img src="images/LeeChenShiang.jpg"/></div>
+              <div class="at-user__name" style="font-size: 1.5rem;">Lee Chen Shiang</div>
+              <div class="at-user__title" style="font-size: 1.5rem;">Project Manager</div>
+            </div>
+          </div>
+
+          <div class="at-column">
+            <div class="at-user" onclick="toggleUserDetails('Fasial')">
+              <div class="at-user__avatar"><img src="images/Fasial.jpg"/></div>
+              <div class="at-user__name" style="font-size: 1.5rem;">Fasial</div>
+              <div class="at-user__title" style="font-size: 1.5rem;">Back End Develoepr</div>
+            </div>
+          </div>
+
+          <div class="at-column">
+            <div class="at-user" onclick="toggleUserDetails('JiahHao')">
+              <div class="at-user__avatar"><img src="images/JiahHao.jpg"/></div>
+              <div class="at-user__name" style="font-size: 1.5rem;">Jiah Hao</div>
+              <div class="at-user__title" style="font-size: 1.5rem;">Back End Develoepr</div>
+            </div>
+          </div>
+
+          <div class="at-column">
+            <div class="at-user" onclick="toggleUserDetails('KiaYi')">
+              <div class="at-user__avatar"><img src="images/KiaYi.jpg"/></div>
+              <div class="at-user__name" style="font-size: 1.5rem;">Kia Yi</div>
+              <div class="at-user__title" style="font-size: 1.5rem;">Back End Develoepr</div>
+            </div>
+          </div>
+
+          <div class="at-column">
+            <div class="at-user" onclick="toggleUserDetails('Showherda')">
+              <div class="at-user__avatar"><img src="images/Showherda.jpg"/></div>
+              <div class="at-user__name" style="font-size: 1.5rem;">Showherda</div>
+              <div class="at-user__title" style="font-size: 1.5rem;">AI engineer</div>
+            </div>
+          </div>
          
 
           <!-- <div class="at-column">
@@ -1567,7 +1668,41 @@ header a:hover {
         weiJerDiv.style.display = 'none';
         kahheeDiv.style.display = 'none';
         abuDiv.style.display = 'none';
-      }
+      }else if (userId === 'LeeChenShiang') {
+        kahheeDiv.style.display = 'block';
+        junDeDiv.style.display = 'none';
+        weiJerDiv.style.display = 'none';
+        abuDiv.style.display = 'none';
+        benDiv.style.display = 'none';
+        jiaQianDiv.style.display = 'none';
+      } else if (userId === 'Fasial') {
+        abuDiv.style.display = 'block';
+        junDeDiv.style.display = 'none';
+        weiJerDiv.style.display = 'none';
+        kahheeDiv.style.display = 'none';
+        benDiv.style.display = 'none';
+        jiaQianDiv.style.display = 'none';
+      } else if (userId === 'JiahHao') {
+        benDiv.style.display = 'block';
+        junDeDiv.style.display = 'none';
+        weiJerDiv.style.display = 'none';
+        kahheeDiv.style.display = 'none';
+        abuDiv.style.display = 'none';
+        jiaQianDiv.style.display = 'none';
+      }else if (userId === 'KiaYi') {
+        jiaQianDiv.style.display = 'block';
+        benDiv.style.display = 'none';
+        junDeDiv.style.display = 'none';
+        weiJerDiv.style.display = 'none';
+        kahheeDiv.style.display = 'none';
+        abuDiv.style.display = 'none';
+      }else if (userId === 'Showherda') {
+        jiaQianDiv.style.display = 'block';
+        benDiv.style.display = 'none';
+        junDeDiv.style.display = 'none';
+        weiJerDiv.style.display = 'none';
+        kahheeDiv.style.display = 'none';
+        abuDiv.style.display = 'none';
     }
   </script>
   </body>
