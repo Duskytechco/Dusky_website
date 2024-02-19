@@ -12,9 +12,9 @@
 
 </head>
 <header class="parallax">
-  <div class="container">
+  <div class="container-header">
     <div id="branding">
-      <img src="images/logo.png" style="width:30%;">
+      <img src="images/duskylogo.jpeg" style ="width:350px; padding-left: 150px;">
     </div>
     <nav>
       <ul>
@@ -1848,10 +1848,36 @@ ul {
 
 
 /* Header */
+.container-header {
+  background-color: #0c0936; /* Black background */
+  color: white;
+  padding: 15px 0; /* Adjust padding as needed */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%; /* Set width to 100% to extend full width */
+  max-width: none; /* Remove max-width limitation */
+  display: fixed;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+}
+
+nav ul li {
+  margin-right: 20px;
+}
+
+nav a {
+  text-decoration: none;
+  color: #fff;
+}
+
 header {
     background: #090909;
     color: #fff;
-    padding-top: 30px;
+    /*padding-top: 30px;*/
     min-height: 70px;
 }
 
