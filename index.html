@@ -408,7 +408,13 @@
       margin-top: 100px;
     }
 
-
+    .carousel-indicators li {
+    background-color: rgb(0, 0, 0);
+    }
+  
+    .carousel-indicators .active {
+    background-color: #5179fd;
+    }
 
 
     @-webkit-keyframes jello-horizontal {
@@ -496,6 +502,17 @@
       animation: jello-horizontal 0.9s both;
     }
 
+  /* Carousel control icons color */
+  .carousel-control-prev-icon,
+  .carousel-control-next-icon {
+    background-color: black;
+  }
+
+  /* Optional: Change color on hover */
+  .carousel-control-prev:hover,
+  .carousel-control-next:hover {
+    background-color: darkgray; /* Change to the desired hover color */
+  }
 
     @media only screen and (max-width: 300px) {
       .process-scetion .slider-nav-item {
@@ -562,6 +579,62 @@
     </div>
   </div>
 
+  <div style="text-align: center; margin-bottom:2%">
+      <h4 style="color: #CDAD7D; font-size: 2.5rem; font-weight: 300; line-height: 1.6;">Explore Our Partnerships</h4>
+    </div>
+      
+    <div class="container-fluid p-0 carousel" style="transform: scale(auto); margin-bottom:2%;">
+      <div class="carousel" style="background-color: rgb(255, 255, 255); width:auto; height: auto;">
+        <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel" style="position: relative;">
+
+          <!-- Carousel Indicators -->
+          <ol class="carousel-indicators" style="position: absolute; bottom: -25px;">
+            <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+          </ol>
+          
+          <!-- Carousel Inner -->
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <div class="d-flex justify-content-around align-items-center" style="height: 100%;">
+                <img src="images/Asia AI logo.png" alt="Asia AI" class="d-block" style="width: auto; height: 150px;">
+                <img src="images/APU school Logo.png" alt="APU" class="d-block" style="width: auto; height: 110px;">
+                <img src="images/IIT palakkad.jpg" alt="IIT" class="d-block" style="width: auto; height: 150px;">
+              </div>
+            </div>
+            <div class="carousel-item">
+              <div class="d-flex justify-content-around align-items-center" style="height: 100%;">
+                <img src="images/Sunway logo.jpg" alt="Sunway" class="d-block" style="width: auto; height: 150px;">
+                <img src="images/UCSI logo.jpg" alt="UCSI" class="d-block" style="width: auto; height: 150px;">
+                <img src="images/UM logo.png" alt="UM" class="d-block" style="width: auto; height: 110px;">
+              </div>
+            </div>
+            <div class="carousel-item">
+              <div class="d-flex justify-content-around align-items-center" style="height: 100%;">
+                <img src="images/Universitas indonesia.jpg" alt="Indonesia" class="d-block" style="width: auto; height: 110px;">
+                <img src="images/myLearnZone.jpg" alt="myLearnZone" class="d-block" style="width: auto; height: 150px;">
+              </div>
+            </div>
+          </div>
+      
+          <!-- Carousel Controls -->
+          <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev" style="width: 4%; position: absolute; top: 50%; transform: translateY(-50%); left: 0;">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+          </a>
+          <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next" style="width: 4%; position: absolute; top: 50%; transform: translateY(-50%); right: 0;">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <a href="associate.html" style="display: block; text-align: center; margin-bottom: 3%;">
+    <img src="images/readmore.png" alt="learnmore" style="width: auto; height: 170px; margin-left: auto; margin-right: auto;">
+  </a>
 
   <style>
     .contacticon {
